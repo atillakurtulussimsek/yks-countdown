@@ -58,5 +58,5 @@
 # Dizin listelemesini engelle
 Options -Indexes
 
-# PHP hata gösterimini kapat (canlı ortamda)
-php_flag display_errors off
+# PHP hata mesajlarını php.ini üzerinden yönetiniz
+# php_flag direktifi kaldırıldı
