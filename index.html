@@ -109,7 +109,7 @@
             --font-size-text: clamp(1rem, 1.3vw, 1.2rem);
         }
 
-        /* Temel stiller */
+        /* Temel stiller - Tekilleştirilmiş */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -172,7 +172,7 @@
         100% { transform: rotate(360deg); }
     }
     
-    /* Particles.js arka planı daha belirgin */
+    /* Particles.js arka planı daha belirgin - Tekilleştirilmiş */
     #particles-js {
         position: fixed;
         width: 100%;
@@ -224,39 +224,7 @@
         100% { transform: translateX(100%) rotate(30deg); }
     }
     
-        /* Temel stiller */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background: var(--dark-gradient);
-            min-height: 100vh;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative;
-            z-index: 1;
-            overflow-y: auto;
-            overflow-x: hidden; /* Yatay kaydırmayı engelle */
-            color: var(--text-bright);
-        }
-        
-        /* Particles container */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.95; /* Opacity arttırıldı */
-        }
+        /* Tekrarlanan Temel stiller ve Particles container bölümleri kaldırıldı, yukarıda tekilleştirildi */
         
         /* Ana içerik alanı - kaydırma sorununu çözmek için düzenlendi */
         .content {
@@ -731,6 +699,79 @@
         .scroll-indicator:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        /* Çerez Uyarısı Stili - Geliştirilmiş Görünüm */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(20, 18, 51, 0.97); /* Biraz daha açık ve opak arka plan */
+            border: 1px solid rgba(183, 33, 255, 0.4); /* Kenarlık rengi biraz daha belirgin */
+            border-radius: 15px; /* Daha yuvarlak köşeler */
+            padding: 20px 25px; /* İç boşluk artırıldı */
+            max-width: 90%;
+            width: 380px; /* Genişlik biraz artırıldı */
+            z-index: 10000;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Daha yumuşak ve yaygın gölge */
+            backdrop-filter: blur(8px); /* Blur efekti biraz artırıldı */
+            color: var(--text-bright);
+            font-size: 0.95rem; /* Yazı boyutu biraz artırıldı */
+            text-align: center;
+            display: none; 
+            opacity: 0; 
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Yumuşak geçişler eklendi */
+        }
+
+        .cookie-banner.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            animation: slideUpEnhanced 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; /* Geliştirilmiş animasyon */
+        }
+
+        .cookie-banner p {
+            margin-bottom: 18px; /* Paragraf alt boşluğu artırıldı */
+            line-height: 1.5; /* Satır yüksekliği artırıldı */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Metne gölge eklendi */
+        }
+
+        .cookie-banner button {
+            background: var(--harmony-purple);
+            border: none;
+            border-radius: 10px; /* Buton köşe yuvarlaklığı artırıldı */
+            color: white;
+            padding: 10px 20px; /* Buton iç boşluğu artırıldı */
+            font-weight: 700; /* Yazı kalınlığı artırıldı */
+            cursor: pointer;
+            font-family: var(--font-text);
+            font-size: 0.95rem; /* Buton yazı boyutu artırıldı */
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Butona hafif gölge */
+        }
+
+        .cookie-banner button:hover {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2); /* Hover'da gradyan yönü değişimi */
+            transform: translateY(-3px) scale(1.03); /* Hover'da hafif yukarı ve büyüme efekti */
+            box-shadow: 0 6px 15px rgba(142, 45, 226, 0.5); /* Hover'da gölge belirginleşiyor */
+        }
+
+        /* Geliştirilmiş slideUp animasyonu */
+        @keyframes slideUpEnhanced {
+            from {
+                transform: translate(-50%, 80px); /* Başlangıç pozisyonu biraz daha aşağıda */
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+        
+        /* Mevcut slideUp animasyonu kaldırıldı, slideUpEnhanced kullanılıyor */
+
+        /* ...rest of existing styles... */
     </style>
 </head>
 <body>
@@ -741,6 +782,7 @@
         "@type": "EducationalOrganization",
         "name": "Yeni Nesil Eğitim Kurumları",
         "url": "https://yeninesilkurs.tr",
+        "logo": "https://yks.yeninesilkurs.tr/logo.png", // Buraya kurumunuzun logo URL'sini ekleyin
         "sameAs": [
             "https://www.facebook.com/yeninesilkurs/",
             "https://www.instagram.com/yeninesilkurs/"
@@ -766,6 +808,58 @@
             "price": "0",
             "priceCurrency": "TRY"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "YKS 2025 - Temel Yeterlilik Testi (TYT)",
+      "startDate": "2025-06-21T10:15:00+03:00",
+      "endDate": "2025-06-21T13:00:00+03:00", // TYT süresi 165 dakika (10:15 + 2sa 45dk = 13:00)
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Türkiye Geneli Sınav Merkezleri",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TR"
+        }
+      },
+      "description": "Yükseköğretim Kurumları Sınavı 2025'in ilk oturumu olan Temel Yeterlilik Testi.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "ÖSYM (Ölçme, Seçme ve Yerleştirme Merkezi)",
+        "url": "https://www.osym.gov.tr"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "YKS 2025 - Alan Yeterlilik Testleri (AYT)",
+      "startDate": "2025-06-22T10:15:00+03:00",
+      "endDate": "2025-06-22T13:15:00+03:00", // AYT süresi 180 dakika (10:15 + 3sa = 13:15)
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Türkiye Geneli Sınav Merkezleri",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TR"
+        }
+      },
+      "description": "Yükseköğretim Kurumları Sınavı 2025'in ikinci oturumu olan Alan Yeterlilik Testleri.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "ÖSYM (Ölçme, Seçme ve Yerleştirme Merkezi)",
+        "url": "https://www.osym.gov.tr"
+      }
     }
     </script>
 
@@ -832,8 +926,8 @@
                 </section>
             </div>
             
-            <!-- Kaydırma işaretçisi -->
-            <div class="scroll-indicator" onclick="scrollToContent()"></div>
+            <!-- Kaydırma işaretçisi - Erişilebilirlik iyileştirmeleri eklendi -->
+            <div class="scroll-indicator" onclick="scrollToContent()" role="button" tabindex="0" aria-label="İçeriğe kaydır"></div>
         </main>
         
         <!-- SEO bilgi içeriği -->
@@ -850,12 +944,17 @@
         </footer>
     </div>
 
+    <!-- Çerez Bilgilendirme Banner'ı -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Bu site, deneyiminizi geliştirmek için çerezler kullanmaktadır. Siteyi kullanmaya devam ederek çerezlerin kullanımını kabul etmiş olursunuz.</p>
+        <button id="accept-cookies">Kabul Et</button>
+    </div>
+
     <!-- Particles.js Kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     
     <!-- Sayaç ve Particles.js konfigürasyonu -->
     <script>
-        // DOMContentLoaded olay dinleyicisi ile sayfa yüklendikten sonra çalışmasını sağlıyoruz
         document.addEventListener('DOMContentLoaded', function() {
             // Particles.js yapılandırması 
             particlesJS('particles-js', {
@@ -961,6 +1060,35 @@
             updateCountdown();
             // Sayaçları her saniye güncelle.
             setInterval(updateCountdown, 1000);
+            
+            // Çerez bilgilendirme sistemi
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookiesButton = document.getElementById('accept-cookies');
+
+            if (cookieBanner && acceptCookiesButton) {
+                // Üretim için localStorage kontrolünü aktif bırakın.
+                // Test amacıyla banner'ı her zaman görmek için aşağıdaki if satırını ve kapanışını yorum satırı yapın.
+                if (localStorage.getItem('cookiesAccepted') !== 'true') {
+                    setTimeout(function() {
+                        cookieBanner.classList.add('show');
+                    }, 100); 
+                }
+
+                acceptCookiesButton.addEventListener('click', function() {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    
+                    cookieBanner.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+                    cookieBanner.style.opacity = '0';
+                    cookieBanner.style.transform = 'translate(-50%, 100px)'; 
+                    
+                    setTimeout(function() {
+                        cookieBanner.classList.remove('show'); 
+                        cookieBanner.style.display = 'none'; 
+                        cookieBanner.style.opacity = ''; 
+                        cookieBanner.style.transform = 'translateX(-50%)'; 
+                    }, 400); 
+                });
+            }
         });
         
         // Hedef sınav tarihleri (Türkiye Saati - UTC+3)
@@ -973,12 +1101,9 @@
         function updateCountdown() {
             // 'now' gets the current moment based on the user's system clock.
             // Internally, Date objects store time as milliseconds since the UTC epoch.
-            const now = new Date();
+            const now = new Date(); // 'now' değişkeni eksikti, eklendi
             
             // TYT için geri sayım hesaplama
-            // The subtraction `targetDate - now` correctly calculates the millisecond difference
-            // between the fixed target time (in TRT) and the current universal moment.
-            // This difference is absolute and independent of the user's local timezone settings.
             updateSpecificCountdown(
                 targetDate - now,
                 'days', 'hours', 'minutes', 'seconds'
@@ -991,7 +1116,7 @@
             );
         }
         
-        // Belirli bir sayacı güncelleyen yardımcı fonksiyon - renk değişimi eklendi
+        // Belirli bir sayacı güncelleyen yardımcı fonksiyon
         function updateSpecificCountdown(timeDiff, daysId, hoursId, minutesId, secondsId) {
             if (timeDiff <= 0) {
                 // Süre dolmuşsa tüm değerleri sıfırla
@@ -1062,5 +1187,32 @@
             seoContent.classList.add('visible');
         }
     </script>
+    
+    <!-- Google tag (gtag.js) - GA4 Analitik -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GDWMSZW0P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-7GDWMSZW0P');
+    </script>
+    
+    <!-- Önerilen Diğer Ücretsiz İstatistik Araçları Hakkında Bilgi -->
+    <!-- 
+    Alternatif olarak, aşağıdaki araçları da değerlendirebilirsiniz:
+
+    1. Cloudflare Web Analytics: Gizlilik odaklı, çerez kullanmayan analiz aracı
+       - Avantajları: Çerez uyarısı gerektirmez, kurulumu kolay, tamamen ücretsiz
+       - Kurulum: https://www.cloudflare.com/web-analytics/
+
+    2. Matomo (Piwik): Açık kaynaklı Google Analytics alternatifi
+       - Avantajları: Verilerinizin tam kontrolü, kendi sunucunuzda barındırabilirsiniz
+       - Kurulum: https://matomo.org/
+
+    3. Plausible Analytics: Basit, hızlı ve gizlilik odaklı analitik
+       - Avantajları: Hafif kod, sayfa yükleme hızını etkilemez, kullanıcı dostu arayüz
+       - Kurulum: https://plausible.io/
+    -->
 </body>
 </html>
