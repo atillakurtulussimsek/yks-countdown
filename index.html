@@ -3,25 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geri Sayım Sayacı</title>
-    <!-- Google Fonts ekleyelim - daha şık yazılar için -->
+    
+    <!-- SEO için geliştirilmiş başlık -->
+    <title>YKS Geri Sayım 2025 | TYT AYT Sınavına Kaç Gün Kaldı? | Yeni Nesil Eğitim Kurumları</title>
+    
+    <!-- Temel SEO meta etiketleri -->
+    <meta name="description" content="2025 YKS sınavına kaç gün kaldığını gösteren dinamik geri sayım sayacı. TYT ve AYT oturumları için gün, saat, dakika ve saniye olarak kalan süreyi takip edin.">
+    <meta name="keywords" content="YKS, TYT, AYT, 2025 YKS, üniversite sınavı, geri sayım, sayaç, kaç gün kaldı, Yeni Nesil Eğitim Kurumları">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yks.yeninesilkurs.tr/">
+    
+    <!-- Sosyal medya meta etiketleri (Open Graph) -->
+    <meta property="og:title" content="YKS 2025 Geri Sayım | TYT ve AYT Sınavları">
+    <meta property="og:description" content="Üniversite sınavına kaç gün kaldı? TYT ve AYT için dinamik geri sayım.">
+    <meta property="og:url" content="https://yks.yeninesilkurs.tr/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Yeni Nesil Eğitim Kurumları">
+    <meta property="og:image" content="https://yks.yeninesilkurs.tr/og-image.jpg">
+    
+    <!-- Twitter Card meta etiketleri -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YKS 2025 Geri Sayım Sayacı">
+    <meta name="twitter:description" content="Üniversite sınavına kaç gün kaldı? TYT ve AYT için dinamik geri sayım sayacı.">
+    <meta name="twitter:image" content="https://yks.yeninesilkurs.tr/twitter-image.jpg">
+    
+    <!-- Robots meta etiketi -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Sayfa dilini ve yönünü belirt -->
+    <meta name="language" content="Turkish">
+    <meta name="geo.region" content="TR">
+    
+    <!-- Mobil için tema rengi -->
+    <meta name="theme-color" content="#0f0c29">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicon eklentisi -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Sayfanın yüklenme hızını artırmak için preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <!-- Yazı tipi optimizasyonu (sadece kullanılan ağırlıklar) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stil tanımlamaları - düzenlenmiş ve optimize edilmiş -->
     <style>
+        /* Değişkenler ve temel stil tanımlamaları */
         :root {
-            /* Çarpıcı gradyan tonlar ve etkileyici renk paleti */
-            --dark-bg: #0f0c29; /* Daha derin bir mor-lacivert arkaplan */
-            --dark-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Zengin gradyan arkaplan */
+            /* Renkler ve gradyanlar */
+            --dark-bg: #0f0c29;
+            --dark-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             
-            /* Ana tema renkleri - Canlı neon tonlar */
+            /* Neon tonları */
             --neon-blue: #4facfe;
             --neon-purple: #b721ff; 
             --neon-pink: #ff0080;
             --neon-green: #00f260;
             --neon-orange: #ff8b23;
             
-            /* Sayaç renkleri için etkileyici gradyanlar */
+            /* Gradyanlar */
             --grad-blue: linear-gradient(45deg, #09c6f9, #045de9);
             --grad-purple: linear-gradient(45deg, #b721ff, #21d4fd);
             --grad-pink: linear-gradient(45deg, #ff0080, #ff8c00);
@@ -29,13 +76,49 @@
             --grad-gold: linear-gradient(45deg, #f9d423, #ff4e50);
             
             /* Metin renkleri */
-            --text-bright: rgba(255, 255, 255, 0.97); /* Parlak beyaz */
+            --text-bright: rgba(255, 255, 255, 0.97);
+            --text-medium: rgba(255, 255, 255, 0.8);
+            --text-muted: rgba(255, 255, 255, 0.6);
             --text-glow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+            
+            /* Boşluk değişkenleri */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 20px;
+            --spacing-lg: 30px;
+            --spacing-xl: 50px;
+            
+            /* Dinamik renk değişimi için yeni değişkenler */
+            --urgency-low: linear-gradient(45deg, #43e97b, #38f9d7); /* Yeşil tonu - çok zaman var */
+            --urgency-medium: linear-gradient(45deg, #f9d423, #f83600); /* Turuncu/sarı - orta zaman */
+            --urgency-high: linear-gradient(45deg, #ff416c, #ff4b2b); /* Kırmızı tonu - az zaman */
+            
+            /* Daha uyumlu renk seti için yeni değişkenler */
+            --harmony-purple: linear-gradient(45deg, #8E2DE2, #4A00E0);
+            --harmony-blue: linear-gradient(45deg, #2193b0, #6dd5ed);
+            --harmony-teal: linear-gradient(45deg, #11998e, #38ef7d);
+            --harmony-orange: linear-gradient(45deg, #FF8008, #FFC837);
+            
+            /* Yazı tipi değişkenleri - daha iyi okunabilirlik için */
+            --font-title: 'Poppins', sans-serif;
+            --font-text: 'Poppins', sans-serif;
+            --font-size-title: clamp(2.5rem, 5vw, 4.5rem);
+            --font-size-subtitle: clamp(1.6rem, 3vw, 2.5rem);
+            --font-size-counter: clamp(2.2rem, 4vw, 3.5rem);
+            --font-size-label: clamp(0.9rem, 1.2vw, 1.4rem);
+            --font-size-text: clamp(1rem, 1.3vw, 1.2rem);
         }
 
+        /* Temel stiller */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
-            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-            background: var(--dark-gradient); /* Zengin mor-lacivert gradyan */
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: var(--dark-gradient);
             min-height: 100vh;
             margin: 0;
             display: flex;
@@ -44,7 +127,124 @@
             justify-content: flex-start;
             position: relative;
             z-index: 1;
-            overflow-y: auto; /* Dikey taşma durumunda kaydırma çubuğu ekle */
+            overflow-y: auto;
+            overflow-x: hidden; /* Yatay kaydırmayı engelle */
+            color: var(--text-bright);
+        }
+        
+        /* Yeni geliştirilmiş arka plan */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b721ff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
+            linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 96, 0.1) 100%);
+        opacity: 0.7; /* Increased opacity */
+    }
+    
+    .bg-glow {
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+        background: radial-gradient(circle at center, rgba(183, 33, 255, 0.4) 0%, rgba(33, 212, 253, 0.2) 40%, transparent 70%); /* Increased alpha values */
+        animation: rotate 30s linear infinite;
+        z-index: -1;
+    }
+    
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Particles.js arka planı daha belirgin */
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.95; /* Opacity arttırıldı */
+    }
+    
+    /* Dinamik renk değişimi için countdown item sınıfları */
+    .countdown-item.urgency-low {
+        background: var(--urgency-low);
+        box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3), inset 0 0 10px rgba(255,255,255,0.2);
+    }
+    
+    .countdown-item.urgency-medium {
+        background: var(--urgency-medium);
+        box-shadow: 0 10px 30px rgba(249, 212, 35, 0.3), inset 0 0 10px rgba(255,255,255,0.2);
+    }
+    
+    .countdown-item.urgency-high {
+        background: var(--urgency-high);
+        box-shadow: 0 10px 30px rgba(255, 65, 108, 0.3), inset 0 0 10px rgba(255,255,255,0.2);
+    }
+    
+    /* Dikkat çekici parlama efekti için ek animasyon */
+    .countdown-item {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .countdown-item::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+        transform: rotate(30deg);
+        animation: shimmer 4s infinite;
+        z-index: 1;
+        opacity: 0.7;
+    }
+    
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) rotate(30deg); }
+        100% { transform: translateX(100%) rotate(30deg); }
+    }
+    
+        /* Temel stiller */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: var(--dark-gradient);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+            overflow-x: hidden; /* Yatay kaydırmayı engelle */
+            color: var(--text-bright);
         }
         
         /* Particles container */
@@ -55,22 +255,37 @@
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.6; /* Biraz daha belirgin parçacıklar */
+            opacity: 0.95; /* Opacity arttırıldı */
         }
         
-        /* Content container to ensure everything is above particles */
+        /* Ana içerik alanı - kaydırma sorununu çözmek için düzenlendi */
         .content {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1400px; /* Maksimum genişlik sınırlandırması */
+            max-width: 1400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 20px 20px 20px; /* Alt tarafa da padding ekle */
+            padding: 20px var(--spacing-md) var(--spacing-md) var(--spacing-md);
+            height: 100vh;
+            justify-content: flex-start; /* İçeriği üstten başlat, ortalama yerine */
+            overflow-y: auto;
             box-sizing: border-box;
         }
         
+        /* Header görünürlüğünü sağlama */
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 5; /* Önde olmasını sağla */
+        }
+        
+        /* Başlık çubuğu düzeltmesi */
         .header-bar {
             background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
             color: white;
@@ -78,249 +293,26 @@
             border-radius: 15px;
             font-size: 1.3rem;
             font-weight: 700;
-            margin-top: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(183, 33, 255, 0.5); /* Mor gölge efekti */
-            letter-spacing: 1px;
+            margin: 0 0 20px 0; /* Margin düzeltildi */
+            position: relative;
+            display: block; /* Görünürlüğü garanti eder */
+            z-index: 5;
+            box-shadow: 0 5px 20px rgba(183, 33, 255, 0.5);
+            letter-spacing: 0.5px; /* Azaltılmış letter-spacing */
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* İnce parlak kenarlık */
-            backdrop-filter: blur(5px); /* Bulanık cam efekti */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
             max-width: 80%;
-            text-shadow: var(--text-glow);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Geliştirilmiş text shadow */
             animation: pulseShadow 3s infinite alternate;
+            font-size: clamp(1.2rem, 1.8vw, 1.6rem);
         }
         
+        /* Animasyonlar */
         @keyframes pulseShadow {
             from { box-shadow: 0 5px 15px rgba(183, 33, 255, 0.4); }
             to { box-shadow: 0 5px 25px rgba(183, 33, 255, 0.7); }
-        }
-        
-        .header-bar:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(183, 33, 255, 0.6);
-        }
-        
-        .main-title {
-            color: white;
-            font-size: clamp(2.2rem, 5vw, 4.2rem); /* Min 2.2rem, max 4.2rem, ekrana göre 5% */
-            font-weight: 800;
-            margin: 25px 0 15px 0; /* Üst ve alt margin azaltıldı */
-            text-align: center;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #f9d423, #ff4e50);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0 15px;
-            max-width: 90%; /* En fazla %90 genişliği kaplasın */
-            position: relative;
-            text-transform: uppercase;
-            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
-            animation: colorShift 10s infinite alternate;
-        }
-        
-        @keyframes colorShift {
-            0% { background: linear-gradient(to right, #f9d423, #ff4e50); -webkit-background-clip: text; }
-            50% { background: linear-gradient(to right, #00f260, #0575e6); -webkit-background-clip: text; }
-            100% { background: linear-gradient(to right, #b721ff, #21d4fd); -webkit-background-clip: text; }
-        }
-        
-        .subtitle, .countdown-title {
-            color: var(--text-light);
-            font-size: clamp(1.1rem, 2vw, 1.7rem); /* Min 1.1rem, max 1.7rem, ekrana göre 2% */
-            margin-bottom: 20px; /* Alt margin azaltıldı */
-            text-align: center;
-            text-shadow: 1px 2px 6px rgba(0,0,0,0.4);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-            padding: 0 20px;
-            max-width: 90%; /* En fazla %90 genişliği kaplasın */
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 4vw; /* Viewport genişliğine bağlı aralık */
-            margin-bottom: 15px; /* Alt margin azaltıldı */
-            width: 100%;
-        }
-        .countdown-item {
-            width: clamp(80px, 12vw, 150px);
-            height: clamp(80px, 12vw, 150px);
-            border-radius: 50%;
-            border: none; /* Kenarlığı kaldır */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden; /* Gradyanı içeride tut */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 10px rgba(255,255,255,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .countdown-section:nth-child(1) .countdown-item.days { 
-            background: var(--grad-gold);
-        }
-        .countdown-section:nth-child(1) .countdown-item.hours { 
-            background: var(--grad-blue);
-        }
-        .countdown-section:nth-child(1) .countdown-item.minutes { 
-            background: var(--grad-green);
-        }
-        .countdown-section:nth-child(1) .countdown-item.seconds { 
-            background: var(--grad-purple);
-        }
-        .countdown-section:nth-child(2) .countdown-item.days { 
-            background: var(--grad-pink);
-        }
-        .countdown-section:nth-child(2) .countdown-item.hours { 
-            background: var(--grad-purple);
-        }
-        .countdown-section:nth-child(2) .countdown-item.minutes { 
-            background: var(--grad-blue);
-        }
-        .countdown-section:nth-child(2) .countdown-item.seconds { 
-            background: var(--grad-green);
-        }
-        .countdown-value {
-            color: white;
-            font-size: clamp(1.7rem, 2.5vw, 3.2rem);
-            font-weight: 800;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            line-height: 1;
-            z-index: 2;
-        }
-        .countdown-label {
-            color: rgba(255,255,255,0.9);
-            font-size: clamp(0.75rem, 1vw, 1.3rem);
-            font-weight: 600;
-            margin-top: 4px;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 3px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            z-index: 2;
-        }
-        .mascot {
-            display: none; /* Eskiden görünür olan mascot bölümünü gizliyoruz */
-        }
-        .mascot-emoji {
-            display: none; /* Emoji'yi tamamen gizliyoruz */
-        }
-        
-        /* Logo alanı için yeni stil */
-        .logo-container {
-            display: none;
-        }
-        
-        .logo {
-            display: none;
-        }
-        
-        @media (max-width: 700px) {
-            .main-title { font-size: 2.2rem; } /* 1.8rem'den 2.2rem'e büyütüldü */
-            .subtitle { font-size: 1.3rem; } /* 1.1rem'den 1.3rem'e büyütüldü */
-            .countdown { 
-                gap: 2vw; /* Mobilde daha az boşluk */
-                flex-wrap: wrap; /* Gerekirse iki satıra insin */
-                justify-content: space-around;
-                margin-bottom: 50px; /* Mobil görünüm için alt boşluk */
-            }
-            .countdown-item { 
-                width: 100px; /* 85px'den 100px'e büyütüldü */ 
-                height: 100px; /* 85px'den 100px'e büyütüldü */
-                border-width: 5px; /* Mobil için border kalınlığı eklendi */
-                margin-bottom: 15px;
-            }
-            .countdown-value { font-size: 1.9rem; } /* 1.6rem'den 1.9rem'e büyütüldü */
-            .countdown-label { font-size: 1.1rem; } /* 0.9rem'den 1.1rem'e büyütüldü */
-            .mascot-emoji { font-size: 3rem; padding: 10px 16px; } /* Boyutlar arttırıldı */
-            .header-bar {
-                font-size: 1.1rem;
-                padding: 10px 20px 8px 20px;
-                max-width: 90%;
-                margin-top: 20px;  /* Mobilde margin ayarlaması */
-            }
-            .main-title {
-                margin-top: 40px;
-            }
-            .countdown-separator {
-                margin: 1vh auto;
-                width: 90%;
-            }
-        }
-        
-        /* New media query for tablets */
-        @media (min-width: 701px) and (max-width: 1024px) {
-            .countdown-item {
-                width: 140px; /* 120px'den 140px'e büyütüldü */
-                height: 140px; /* 120px'den 140px'e büyütüldü */
-                border-width: 6px;
-            }
-            .countdown-value {
-                font-size: 3.4rem; /* 2.8rem'den 3.4rem'e büyütüldü */
-            }
-            .countdown {
-                gap: 30px; /* 25px'den 30px'e arttırıldı */
-            }
-            .main-title {
-                font-size: 3.4rem; /* Tablet için başlık boyutu eklendi */
-            }
-            .subtitle {
-                font-size: 1.4rem; /* Tablet için alt başlık boyutu eklendi */
-            }
-        }
-        
-        /* İkinci sayaç için stil tanımlamaları */
-        .countdown-section {
-            width: 100%;
-            margin-bottom: 10px; /* Margin azaltıldı */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .countdown-title {
-            color: white;
-            font-size: clamp(1.4rem, 2.3vw, 2.1rem);
-            font-weight: 600;
-            margin: 10px 0;
-            text-align: center;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 5px 0;
-        }
-        
-        .countdown-separator {
-            width: 80%;
-            max-width: 500px;
-            height: 3px;
-            background: linear-gradient(to right, 
-                transparent, 
-                rgba(75, 108, 251, 0.1),
-                rgba(75, 108, 251, 0.5), 
-                rgba(75, 108, 251, 0.1),
-                transparent);
-            margin: 20px auto;
-            position: relative;
-        }
-        
-        .countdown-separator:after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 3px;
-            background: rgba(255,255,255,0.8);
-            left: 0;
-            top: 0;
-            animation: moveLight 3s linear infinite;
-            box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.4);
         }
         
         @keyframes moveLight {
@@ -328,416 +320,582 @@
             100% { left: 100%; }
         }
         
-        /* Alt kısımdaki sayaç için farklı renk tanımları */
-        .countdown-section:nth-child(2) .countdown-item.days { border-color: #ff9f43; }
-        .countdown-section:nth-child(2) .countdown-item.hours { border-color: #f368e0; }
-        .countdown-section:nth-child(2) .countdown-item.minutes { border-color: #0abde3; }
-        .countdown-section:nth-child(2) .countdown-item.seconds { border-color: #10ac84; }
-        
-        @media (max-width: 700px) {
-            .countdown-title {
-                font-size: 1.8rem;
-            }
-            
-            .countdown-separator {
-                width: 80%;
-                margin: 30px auto;
-            }
+        .header-bar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(183, 33, 255, 0.6);
         }
         
-        /* Büyük ekranlar için düzenleme */
-        @media (min-width: 1400px) {
-            .countdown-item {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .countdown {
-                gap: 50px;
-            }
-        }
-        
-        /* Extra küçük ekranlar için önlemleri */
-        @media (max-width: 480px) {
-            .countdown-item {
-                width: 70px; /* Azaltıldı */
-                height: 70px; /* Azaltıldı */
-                border-width: 3px;
-            }
-            
-            .countdown-value {
-                font-size: 1.5rem; /* Azaltıldı */
-            }
-            
-            .countdown-label {
-                font-size: 0.7rem; /* Azaltıldı */
-                margin-top: 3px;
-            }
-            
-            .countdown {
-                gap: 10px; /* Azaltıldı */
-            }
-        }
-        
-        /* Ekran yüksekliği çok düşükse daha da kompakt tasarım */
-        @media (max-height: 700px) {
-            .main-title {
-                margin: 15px 0 10px 0;
-                font-size: clamp(1.8rem, 4vw, 3.5rem);
-            }
-            
-            .subtitle {
-                font-size: clamp(1rem, 1.8vw, 1.5rem);
-                margin-bottom: 15px;
-            }
-            
-            .countdown-item {
-                width: clamp(80px, 11vw, 130px);
-                height: clamp(80px, 11vw, 130px);
-            }
-            
-            .header-bar {
-                padding: 8px 20px;
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
-            
-            .countdown-title {
-                font-size: clamp(1.2rem, 2vw, 1.8rem);
-                margin: 5px 0;
-            }
-            
-            .countdown-separator {
-                margin: 8px auto;
-                height: 1px;
-            }
-        }
-        
-        /* Yükseklik çok düşük ve genişlik dar ise ekstra önlem */
-        @media (max-height: 600px) and (max-width: 768px) {
-            .countdown-separator {
-                margin: 5px auto;
-            }
-            
-            .countdown-section {
-                margin-bottom: 5px;
-            }
-            
-            .countdown {
-                margin-bottom: 10px;
-            }
-            
-            .countdown-item {
-                width: 60px;
-                height: 60px;
-                border-width: 3px;
-            }
-            
-            .countdown-value {
-                font-size: 1.2rem;
-            }
-            
-            .countdown-label {
-                font-size: 0.6rem;
-                margin-top: 2px;
-            }
-            
-            .header-bar {
-                padding: 5px 15px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-size: 1rem;
-            }
-            
-            .main-title {
-                margin: 10px 0 5px 0;
-                font-size: 1.5rem;
-            }
-            
-            .subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 10px;
-            }
-        }
-        
-        /* Daha kompakt sayaçlar ve daha az boşluk */
-        .countdown-item {
-            width: clamp(80px, 12vw, 150px); /* 70px'den 80px'e büyütüldü */
-            height: clamp(80px, 12vw, 150px); /* 70px'den 80px'e büyütüldü */
-            border: clamp(2px, 0.5vw, 6px) solid #fff; /* Border kalınlığı hafifçe arttırıldı */
-        }
-        
-        .countdown-value {
-            font-size: clamp(1.7rem, 2.5vw, 3.2rem); /* 1.5rem'den 1.7rem'e büyütüldü */
-        }
-        
-        .countdown-label {
-            font-size: clamp(0.75rem, 1vw, 1.3rem); /* 0.7rem'den 0.75rem'e büyütüldü */
-            margin-top: 4px; /* 3px'ten 4px'e arttırıldı */
-        }
-        
-        /* Başlık ve alt başlık için daha kompakt ayarlar */
+        /* Ana başlık - okunabilirliği artırılmış */
         .main-title {
-            margin: 20px 0 12px 0; /* 15px'ten 20px'e arttırıldı */
-            font-size: clamp(2.1rem, 4.2vw, 4rem); /* 2rem'den 2.1rem'e büyütüldü */
+            font-family: var(--font-title);
+            color: white; /* Set text color to plain white */
+            font-size: var(--font-size-title);
+            font-weight: 800;
+            margin: 0 0 30px 0;
+            padding: 0;
+            text-align: center;
+            letter-spacing: 0.05em; /* Azaltılmış letter-spacing */
+            line-height: 1.3;
+            /* Removed background gradient properties */
+            max-width: 90%;
+            position: relative;
+            display: block;
+            z-index: 5;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); /* Geliştirilmiş text shadow */
+            /* Removed animation: colorShift */
         }
         
-        /* Sayaç başlıkları ve ayracı küçült */
+        /* Sayaç bölümleri - dikey yığınlama için güncellendi */
+        .countdown-section {
+            width: 100%; /* Konteynerin genişliğini alır */
+            max-width: 650px; /* Sayaçların çok fazla yayılmasını önler */
+            margin: 0 auto 20px auto; /* Ortalar ve alt boşluk ekler */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* Sayaçları dikey olarak yığmak için güncellenmiş kapsayıcı */
+        .countdowns-container {
+            display: flex;
+            flex-direction: column; /* Sınav bölümlerini dikey olarak yığar */
+            align-items: center; /* Yığılmış bölümleri ortalar */
+            gap: 30px; /* Yığılmış sınav bölümleri arasındaki boşluk */
+            width: 100%;
+            max-width: 1400px; /* Genel konteynerin maksimum genişliği */
+            margin: 0 auto;
+        }
+        
         .countdown-title {
-            font-size: clamp(1.4rem, 2.3vw, 2.1rem); /* 1.3rem'den 1.4rem'e büyütüldü */
-            margin: 5px 0 10px 0; /* 3px'ten 5px'e arttırıldı */
+            color: white;
+            font-size: clamp(1.2rem, 1.8vw, 1.8rem); /* Remains responsive */
+            font-weight: 700;
+            margin: 0 auto 15px auto;
+            width: 100%;
+            max-width: 95%; /* Ensure title does not overflow its section */
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 10px;
+            background: #8E2DE2; 
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        .countdown-separator {
-            height: 1px;
-            margin: 8px auto; /* Margin azaltıldı */
+        /* Sayaçları içeren alan - daha kompakt ve duyarlı */
+        .countdown {
+            display: flex;
+            flex-wrap: nowrap; /* Ensure items try to stay on one line */
+            justify-content: center;
+            gap: clamp(5px, 1.5vw, 12px); /* Responsive gap */
+            width: 100%;
+            margin: 0 auto;
+            padding: clamp(8px, 2vw, 15px); /* Responsive padding */
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.2);
         }
         
-        /* Ekstra düşük yükseklikli ekranlar için özel önlemler */
+        /* Geri sayım daireleri - duyarlı boyutlandırma ve düzeltilmiş gölge */
+        .countdown-item {
+            position: relative;
+            /* Responsive width and height, ensuring 4 items fit */
+            width: clamp(50px, 19vw, 130px); 
+            height: clamp(50px, 19vw, 130px);
+            border-radius: 50%;
+            border: none;
+            /* Default reddish background and glow, matching image */
+            background: linear-gradient(135deg, #ff5f6d, #ff416c);
+            box-shadow: 0 8px 18px rgba(255, 65, 108, 0.35), 
+                        inset 0 0 12px rgba(255, 255, 255, 0.25),
+                        0 0 25px rgba(255, 95, 109, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Sayaç değeri için geliştirilmiş okunabilirlik ve duyarlı font boyutu */
+        .countdown-value {
+            font-size: clamp(0.8rem, 4.5vw, 2rem); /* Responsive font size */
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.3);
+            line-height: 1;
+            z-index: 2;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Sayaç etiketi - okunabilirlik iyileştirildi ve duyarlı font boyutu */
+        .countdown-label {
+            color: white;
+            font-size: clamp(0.4rem, 2vw, 0.75rem); /* Responsive font size */
+            font-weight: 700;
+            margin-top: clamp(2px, 0.5vh, 5px); /* Responsive margin */
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.25); /* Slightly darker label background */
+            padding: clamp(1px, 0.5vw, 3px) clamp(3px, 1vw, 6px); /* Responsive padding */
+            border-radius: 4px;
+        }
+        
+        /* .countdown-title için yinelenen kural kaldırıldı */
+        
+        /* Her iki sayaç için ortak renk şeması - sayaç öğeleri (urgency sınıfları tarafından geçersiz kılınacak) */
+        .countdown-item.days { 
+            background: var(--harmony-purple);
+            box-shadow: 0 10px 20px rgba(142, 45, 226, 0.4), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(142, 45, 226, 0.2);
+        }
+
+        .countdown-item.hours { 
+            background: var(--harmony-blue); 
+            box-shadow: 0 10px 20px rgba(33, 147, 176, 0.4), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(33, 147, 176, 0.2);
+        }
+
+        .countdown-item.minutes { 
+            background: var(--harmony-teal); 
+            box-shadow: 0 10px 20px rgba(17, 153, 142, 0.4), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(17, 153, 142, 0.2);
+        }
+
+        .countdown-item.seconds { 
+            background: var(--harmony-orange); 
+            box-shadow: 0 10px 20px rgba(255, 128, 8, 0.4), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(255, 128, 8, 0.2);
+        }
+
+        /* Dinamik renk değişimi sınıfları - geliştirildi (Bu stiller temel .countdown-item stillerini geçersiz kılar) */
+        .countdown-item.urgency-low {
+            background: var(--urgency-low);
+            box-shadow: 0 10px 30px rgba(17, 153, 142, 0.5), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(17, 153, 142, 0.3);
+        }
+
+        .countdown-item.urgency-medium {
+            background: var(--urgency-medium);
+            box-shadow: 0 10px 30px rgba(255, 128, 8, 0.5), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(255, 128, 8, 0.3);
+        }
+
+        .countdown-item.urgency-high {
+            background: var(--urgency-high); /* Reddish gradient */
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.4), /* Reddish glow */
+                        inset 0 0 15px rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(255, 65, 108, 0.4);
+        }
+        
+        /* SEO içerik bölümü stili */
+        .seo-content {
+            padding: var(--spacing-lg);
+            max-width: 800px;
+            margin: 60px auto 0 auto; /* Üst boşluk arttırıldı */
+            text-align: center;
+            color: var(--text-medium); /* Biraz daha açık renk */
+            font-size: 1rem; /* Biraz daha büyük yazı */
+            line-height: 1.7; /* Arttırılmış satır aralığı */
+            margin-top: 50px; /* vh yerine sabit piksel değeri */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+        }
+        
+        .seo-content h3 {
+            color: var(--text-bright);
+            font-size: 1.4rem; /* Daha büyük başlık */
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+        
+        .seo-content p {
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .seo-content strong {
+            color: var(--text-bright);
+            font-weight: 700;
+        }
+        
+        /* Footer yazıları - geliştirilmiş okunabilirlik */
+        footer {
+            width: 100%;
+            margin-top: 30px;
+            padding-bottom: 60px; /* Scroll indicator için alan bırak */
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+        
+        footer p {
+            margin-bottom: 8px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        footer a {
+            color: var(--text-bright); /* Daha parlak link rengi */
+            font-weight: 600; /* Daha belirgin linkler */
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        footer a:hover {
+            color: var(--text-bright);
+            text-decoration: underline;
+        }
+        
+        /* Gereksiz sınıflar temizlendi */
+        .mascot, .mascot-emoji, .logo-container, .logo {
+            display: none;
+        }
+
+        /* Medya sorguları - telefon ve tablet için düzenlenmiş */
+        @media (max-width: 700px) { /* 900px'den 700px'e değiştirildi, çünkü sütun düzeni artık varsayılan */
+            .main-title { 
+                font-size: clamp(1.8rem, 6vw, 2.2rem); /* Adjusted for smaller screens */
+                margin-top: 30px;
+            }
+            .countdown-section {
+                max-width: 100%; /* Allow full width on smaller screens */
+            }
+            /* .countdown-item, .countdown-value, .countdown-label için özel boyutlar kaldırıldı, clamp() halleder */
+            .header-bar {
+                font-size: clamp(0.9rem, 3vw, 1.1rem);
+                padding: 8px 15px;
+                max-width: 90%;
+                margin-top: 15px;
+            }
+            .countdown-title { font-size: clamp(1rem, 4vw, 1.3rem); }
+        }
+        
+        @media (min-width: 701px) and (max-width: 1024px) {
+            /* Clamp değerleri zaten bu aralığı kapsamalıdır, gerekirse ince ayar yapılabilir */
+            .main-title { font-size: clamp(2.5rem, 5vw, 3.4rem); }
+        }
+        
+        @media (min-width: 1400px) {
+            /* Clamp max değerleri bu boyutta etkili olmalı */
+            /* .countdown-item max 130px, .countdown-value max 2rem, .countdown-label max 0.75rem */
+        }
+        
+        /* Ekstra küçük ekranlar için optimizasyon (örn. 320px genişlik) */
+        @media (max-width: 480px) {
+            .countdown {
+                gap: clamp(4px, 1vw, 8px); /* Daha da küçük boşluklar */
+                padding: clamp(5px, 1.5vw, 10px);
+            }
+            .countdown-item {
+                /* Clamp min değerleri burada önemli olacak (örn. 50px) */
+                width: clamp(45px, 19vw, 100px); 
+                height: clamp(45px, 19vw, 100px);
+            }
+            .countdown-value {
+                font-size: clamp(0.7rem, 4vw, 1.5rem);
+            }
+            .countdown-label {
+                font-size: clamp(0.35rem, 1.8vw, 0.6rem);
+                margin-top: 2px;
+                padding: 1px 3px;
+            }
+            .main-title {
+                font-size: clamp(1.5rem, 7vw, 2rem);
+                margin-bottom: 20px;
+            }
+            .header-bar {
+                font-size: clamp(0.8rem, 2.5vw, 1rem);
+            }
+             .countdown-title {
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            }
+        }
+        
+        /* Düşük yükseklikli ekranlar için optimizasyon */
         @media (max-height: 650px) {
             .countdown-item {
-                width: clamp(70px, 10vw, 130px); /* 65px'den 70px'e büyütüldü */
-                height: clamp(70px, 10vw, 130px); /* 65px'den 70px'e büyütüldü */
+                width: clamp(70px, 10vw, 130px);
+                height: clamp(70px, 10vw, 130px);
             }
-            
-            .countdown-value {
-                font-size: clamp(1.5rem, 2.2vw, 2.7rem); /* 1.3rem'den 1.5rem'e büyütüldü */
-            }
-            
-            .countdown-label {
-                font-size: clamp(0.65rem, 0.9vw, 1.1rem); /* 0.6rem'den 0.65rem'e büyütüldü */
-            }
-            
+            .countdown-value { font-size: clamp(1.5rem, 2.2vw, 2.7rem); }
+            .countdown-label { font-size: clamp(0.65rem, 0.9vw, 1.1rem); }
             .header-bar {
                 padding: 6px 20px 4px 20px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                font-size: 1.1rem;
+                margin: 10px 0;
             }
-            
             .main-title {
                 margin: 10px 0 8px 0;
                 font-size: clamp(1.8rem, 3.5vw, 3rem);
             }
-            
-            .subtitle {
-                font-size: clamp(0.9rem, 1.5vw, 1.3rem);
-                margin-bottom: 10px;
-                line-height: 1.3;
-            }
-            
             .countdown-title {
                 font-size: clamp(1.1rem, 1.8vw, 1.6rem);
                 margin: 2px 0 5px 0;
             }
+            .seo-content {
+                margin-top: 10vh;
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
         }
         
-        /* Son çare - çok düşük yükseklik durumunda ekstra kompakt ayarlar */
+        /* Çok düşük yükseklikli ekranlar için kritik optimizasyon */
         @media (max-height: 550px) {
-            body {
-                justify-content: flex-start; /* Sayfa başından başlasın */
-            }
-            
-            .content {
-                padding-top: 0; /* Üstten padding kaldırıldı */
-            }
-            
+            body { justify-content: flex-start; }
+            .content { padding-top: 0; }
             .header-bar {
                 margin-top: 5px;
                 padding: 5px 15px;
                 font-size: 1rem;
             }
-            
             .main-title {
                 margin: 5px 0;
                 font-size: clamp(1.5rem, 3vw, 2.5rem);
             }
-            
-            .subtitle {
-                margin-bottom: 5px;
-                font-size: clamp(0.8rem, 1.3vw, 1.1rem);
-                line-height: 1.2;
-                br { display: none; } /* Alt satıra geçmeyi engelle */
-            }
-            
-            .countdown-title {
-                font-size: 1rem;
-                margin: 2px 0;
-            }
-            
+            .countdown-title { font-size: 1rem; margin: 2px 0; }
             .countdown-item {
                 width: 55px;
                 height: 55px;
-                border-width: 2px;
             }
-            
-            .countdown-value {
-                font-size: 1.1rem;
-            }
-            
+            .countdown-value { font-size: 1.1rem; }
             .countdown-label {
                 font-size: 0.55rem;
                 margin-top: 1px;
             }
-            
-            .countdown {
-                gap: 8px;
-                margin-bottom: 5px;
-            }
-            
-            .countdown-separator {
-                margin: 3px auto;
-            }
-            
-            .countdown-section {
-                margin-bottom: 3px;
-            }
+            .countdown { gap: 8px; margin-bottom: 5px; }
+            .countdown-separator { display: none; } /* Bu sınıf HTML'den kaldırıldığı için gizlendi */
+            .countdown-section { margin-bottom: 3px; }
+            .seo-content { padding: 10px; margin-top: 10px; }
+            .seo-content br { display: none; }
         }
         
-        /* Çarpraz medya sorgusu - düşük yükseklik ve geniş ekran */
-        @media (max-height: 600px) and (min-width: 1200px) {
-            .countdown-item {
-                width: 80px;
-                height: 80px;
-            }
+        /* Sayfa kaydırma ipucu - küçük bir ok ekleniyor */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Centers the element */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers the ::after pseudo-element */
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            z-index: 10;
         }
         
-        /* Mobil cihazlar için düzeltme */
-        @media (max-width: 400px) and (max-height: 700px) {
-            .countdown-item {
-                width: 65px;
-                height: 65px;
-            }
+        .scroll-indicator:after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(45deg) translateY(-2px); /* Shapes the arrow */
         }
         
-        /* Parçacık renk ve opaklık ayarları */
-        @media (min-width: 1px) {
-            .particles-js-canvas-el {
-                opacity: 0.7;
-            }
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); } /* translateX needs to be part of the animation if it's on the element directly */
+            50% { transform: translateX(-50%) scale(1.1); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        
+        .scroll-indicator:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
-    <!-- Particles.js container -->
+    <!-- Yapısal şema verisi (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Yeni Nesil Eğitim Kurumları",
+        "url": "https://yeninesilkurs.tr",
+        "sameAs": [
+            "https://www.facebook.com/yeninesilkurs/",
+            "https://www.instagram.com/yeninesilkurs/"
+        ],
+        "description": "Yeni Nesil Eğitim Kurumları, öğrencileri YKS sınavına hazırlayan bir eğitim kurumudur.",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yks.yeninesilkurs.tr/"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YKS 2025 Geri Sayım Sayacı",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "description": "2025 YKS sınavına kaç gün kaldığını gösteren geri sayım aracı",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+        }
+    }
+    </script>
+
+    <!-- Particles.js arkaplan container'ı -->
     <div id="particles-js"></div>
     
+    <!-- Ana içerik -->
     <div class="content">
-        <!-- Logo kısmını kaldırıyoruz -->
-        
-        <!-- Mavi header bar -->
-        <div class="header-bar">
-            YENİ NESİL EĞİTİM KURUMLARI
-        </div>
-        
-        <!-- Ana başlık ve alt başlık -->
-        <div class="main-title">SINAVA KAÇ GÜN KALDI?</div>
-        
-        <!-- İlk geri sayım sayacı -->
-        <div class="countdown-section">
-            <div class="countdown-title">Temel Yeterlilik Testi Oturumu</div>
-            <div class="countdown">
-                <div class="countdown-item days">
-                    <span class="countdown-value" id="days">0</span>
-                    <span class="countdown-label">GÜN</span>
-                </div>
-                <div class="countdown-item hours">
-                    <span class="countdown-value" id="hours">0</span>
-                    <span class="countdown-label">SAAT</span>
-                </div>
-                <div class="countdown-item minutes">
-                    <span class="countdown-value" id="minutes">0</span>
-                    <span class="countdown-label">DAKİKA</span>
-                </div>
-                <div class="countdown-item seconds">
-                    <span class="countdown-value" id="seconds">0</span>
-                    <span class="countdown-label">SANİYE</span>
-                </div>
+        <header>
+            <div class="header-bar">
+                YENİ NESİL EĞİTİM KURUMLARI
             </div>
-        </div>
+            
+            <h1 class="main-title">SINAVA KAÇ GÜN KALDI?</h1>
+        </header>
         
-        <!-- Ayırıcı çizgi -->
-        <div class="countdown-separator"></div>
-        
-        <!-- İkinci geri sayım sayacı - AYT için -->
-        <div class="countdown-section">
-            <div class="countdown-title">Alan Yeterlilik Testi Oturumu</div>
-            <div class="countdown">
-                <div class="countdown-item days">
-                    <span class="countdown-value" id="ayt-days">0</span>
-                    <span class="countdown-label">GÜN</span>
-                </div>
-                <div class="countdown-item hours">
-                    <span class="countdown-value" id="ayt-hours">0</span>
-                    <span class="countdown-label">SAAT</span>
-                </div>
-                <div class="countdown-item minutes">
-                    <span class="countdown-value" id="ayt-minutes">0</span>
-                    <span class="countdown-label">DAKİKA</span>
-                </div>
-                <div class="countdown-item seconds">
-                    <span class="countdown-value" id="ayt-seconds">0</span>
-                    <span class="countdown-label">SANİYE</span>
-                </div>
+        <main>
+            <!-- Sayaçları yan yana düzenliyorum -->
+            <div class="countdowns-container">
+                <!-- TYT sayacı -->
+                <section class="countdown-section">
+                    <h2 class="countdown-title">Temel Yeterlilik Testi</h2>
+                    <div class="countdown">
+                        <div class="countdown-item days">
+                            <span class="countdown-value" id="days">0</span>
+                            <span class="countdown-label">GÜN</span>
+                        </div>
+                        <div class="countdown-item hours">
+                            <span class="countdown-value" id="hours">0</span>
+                            <span class="countdown-label">SAAT</span>
+                        </div>
+                        <div class="countdown-item minutes">
+                            <span class="countdown-value" id="minutes">0</span>
+                            <span class="countdown-label">DAKİKA</span>
+                        </div>
+                        <div class="countdown-item seconds">
+                            <span class="countdown-value" id="seconds">0</span>
+                            <span class="countdown-label">SANİYE</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- AYT sayacı -->
+                <section class="countdown-section">
+                    <h2 class="countdown-title">Alan Yeterlilik Testi</h2>
+                    <div class="countdown">
+                        <div class="countdown-item days">
+                            <span class="countdown-value" id="ayt-days">0</span>
+                            <span class="countdown-label">GÜN</span>
+                        </div>
+                        <div class="countdown-item hours">
+                            <span class="countdown-value" id="ayt-hours">0</span>
+                            <span class="countdown-label">SAAT</span>
+                        </div>
+                        <div class="countdown-item minutes">
+                            <span class="countdown-value" id="ayt-minutes">0</span>
+                            <span class="countdown-label">DAKİKA</span>
+                        </div>
+                        <div class="countdown-item seconds">
+                            <span class="countdown-value" id="ayt-seconds">0</span>
+                            <span class="countdown-label">SANİYE</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
+            
+            <!-- Kaydırma işaretçisi -->
+            <div class="scroll-indicator" onclick="scrollToContent()"></div>
+        </main>
+        
+        <!-- SEO bilgi içeriği -->
+        <section class="seo-content">
+            <h3>2025 YKS (Yükseköğretim Kurumları Sınavı) Hakkında</h3>
+            <p>YKS, Türkiye'de yükseköğretim kurumlarına giriş için düzenlenen merkezi sınavdır. <strong>TYT (Temel Yeterlilik Testi)</strong> ve <strong>AYT (Alan Yeterlilik Testi)</strong> olmak üzere iki oturumdan oluşmaktadır. 2025 yılı YKS sınavı TYT oturumu <time datetime="2025-06-21T10:15:00">21 Haziran 2025 Cumartesi</time> günü, AYT oturumu ise <time datetime="2025-06-22T10:15:00">22 Haziran 2025 Pazar</time> günü gerçekleştirilecektir.</p>
+            <p>Yeni Nesil Eğitim Kurumları olarak, öğrencilerimizin sınava hazırlık sürecinde yanlarındayız. Sınava hazırlık konusunda destek almak için bizimle iletişime geçebilirsiniz.</p>
+        </section>
+        
+        <!-- Sayfa altı bilgileri -->
+        <footer>
+            <p>© 2024 Yeni Nesil Eğitim Kurumları. Tüm hakları saklıdır.</p>
+            <p><a href="tel:+902123456789">Telefon: (0212) 345 67 89</a> | <a href="mailto:info@yeninesilkurs.tr">E-posta: info@yeninesilkurs.tr</a></p>
+        </footer>
     </div>
 
-    <!-- Particles.js Library -->
+    <!-- Particles.js Kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     
+    <!-- Sayaç ve Particles.js konfigürasyonu -->
     <script>
-        // Initialize particles.js
+        // DOMContentLoaded olay dinleyicisi ile sayfa yüklendikten sonra çalışmasını sağlıyoruz
         document.addEventListener('DOMContentLoaded', function() {
+            // Particles.js yapılandırması 
             particlesJS('particles-js', {
                 "particles": {
                     "number": {
-                        "value": 100,
+                        "value": 100, // Increased particle count
                         "density": {
                             "enable": true,
                             "value_area": 800
                         }
                     },
                     "color": {
-                        "value": ["#4facfe", "#b721ff", "#00f260", "#f9d423"]
+                        "value": ["#4facfe", "#b721ff", "#00f260", "#f9d423", "#ffffff"] // Added white
                     },
                     "shape": {
                         "type": "circle",
                         "stroke": {
                             "width": 0,
                             "color": "#000000"
-                        },
+                        }
                     },
                     "opacity": {
-                        "value": 0.4,
+                        "value": 0.6, // Increased particle opacity
                         "random": true,
                         "anim": {
                             "enable": true,
-                            "speed": 1,
-                            "opacity_min": 0.1,
+                            "speed": 1.5, // Slightly faster opacity animation
+                            "opacity_min": 0.2, // Higher min opacity
                             "sync": false
                         }
                     },
                     "size": {
-                        "value": 3,
+                        "value": 3.5, // Slightly larger particles
                         "random": true,
                         "anim": {
                             "enable": true,
-                            "speed": 2,
-                            "size_min": 0.1,
+                            "speed": 2.5, // Slightly faster size animation
+                            "size_min": 0.2, // Higher min size
                             "sync": false
                         }
                     },
                     "line_linked": {
                         "enable": true,
-                        "distance": 150,
-                        "color": "#8a2be2",
-                        "opacity": 0.3,
-                        "width": 1.2
+                        "distance": 160, // Increased distance for more links
+                        "color": "#8a2be2", // Kept color, or could be lighter like "#ffffff"
+                        "opacity": 0.5, // Increased line opacity
+                        "width": 1.3 // Slightly thicker lines
                     },
                     "move": {
                         "enable": true,
-                        "speed": 1,
+                        "speed": 1.5, // Slightly faster movement
                         "direction": "none",
                         "random": true,
                         "straight": false,
@@ -778,56 +936,108 @@
                 },
                 "retina_detect": true
             });
+            
+            // Yeni geliştirilmiş arka plan elementini ekle
+            const bodyElement = document.querySelector('body');
+            if (!document.querySelector('.bg-animation')) {
+                const bgAnimation = document.createElement('div');
+                bgAnimation.className = 'bg-animation';
+                bgAnimation.innerHTML = '<div class="bg-glow"></div>';
+                bodyElement.insertBefore(bgAnimation, bodyElement.firstChild);
+            }
+            
+            // Sayaçları başlat
+            updateCountdown();
+            // Sayaçları her saniye güncelle.
+            setInterval(updateCountdown, 1000);
         });
-
-        // Hedef tarihleri buradan ayarlayabilirsiniz 
+        
+        // Hedef sınav tarihleri
         const targetDate = new Date('2025-06-21T10:15:00'); // TYT için
-        const aytTargetDate = new Date('2025-06-22T10:15:00'); // AYT için (Örnek: Aynı gün öğleden sonra)
-
+        const aytTargetDate = new Date('2025-06-22T10:15:00'); // AYT için
+        
+        // Sayaçları güncelleyen fonksiyon
         function updateCountdown() {
             const now = new Date();
             
-            // TYT için geri sayım
-            const diff = targetDate - now;
-            if (diff <= 0) {
-                document.getElementById('days').textContent = '0';
-                document.getElementById('hours').textContent = '0';
-                document.getElementById('minutes').textContent = '0';
-                document.getElementById('seconds').textContent = '0';
+            // TYT için geri sayım hesaplama
+            updateSpecificCountdown(
+                targetDate - now,
+                'days', 'hours', 'minutes', 'seconds'
+            );
+            
+            // AYT için geri sayım hesaplama
+            updateSpecificCountdown(
+                aytTargetDate - now,
+                'ayt-days', 'ayt-hours', 'ayt-minutes', 'ayt-seconds'
+            );
+        }
+        
+        // Belirli bir sayacı güncelleyen yardımcı fonksiyon - renk değişimi eklendi
+        function updateSpecificCountdown(timeDiff, daysId, hoursId, minutesId, secondsId) {
+            if (timeDiff <= 0) {
+                // Süre dolmuşsa tüm değerleri sıfırla
+                document.getElementById(daysId).textContent = '0';
+                document.getElementById(hoursId).textContent = '0';
+                document.getElementById(minutesId).textContent = '0';
+                document.getElementById(secondsId).textContent = '0';
+                
+                // Tüm sayaç öğelerine yüksek aciliyet rengi ver
+                updateCountdownColors(daysId, 0);
             } else {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((diff / (1000 * 60)) % 60);
-                const seconds = Math.floor((diff / 1000) % 60);
-
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
+                // Kalan süreyi hesapla
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeDiff / 1000) % 60);
+                
+                // DOM'u güncelle
+                document.getElementById(daysId).textContent = days;
+                document.getElementById(hoursId).textContent = hours;
+                document.getElementById(minutesId).textContent = minutes;
+                document.getElementById(secondsId).textContent = seconds;
+                
+                // Kalan süreye göre renk güncelle
+                updateCountdownColors(daysId, days);
+            }   
+        }
+        
+        // Kalan süreye göre renk değiştiren fonksiyon
+        function updateCountdownColors(daysId, days) {
+            // Gün, saat, dakika, saniye elementlerini seç
+            const isAYT = daysId.includes('ayt');
+            const prefix = isAYT ? 'ayt-' : '';
+            const dayElement = document.getElementById(daysId).closest('.countdown-item');
+            const hourElement = document.getElementById(`${prefix}hours`).closest('.countdown-item');
+            const minuteElement = document.getElementById(`${prefix}minutes`).closest('.countdown-item');
+            const secondElement = document.getElementById(`${prefix}seconds`).closest('.countdown-item');
+            
+            // Tüm sınıfları temizle
+            [dayElement, hourElement, minuteElement, secondElement].forEach(el => {
+                el.classList.remove('urgency-low', 'urgency-medium', 'urgency-high');
+            });
+            
+            // Kalan süreye göre renk sınıfı ata
+            let urgencyClass;
+            if (days > 100) {
+                urgencyClass = 'urgency-low'; // 100 günden fazla - yeşil
+            } else if (days > 30) {
+                urgencyClass = 'urgency-medium'; // 30-100 gün arası - turuncu
+            } else {
+                urgencyClass = 'urgency-high'; // 30 günden az - kırmızı
             }
             
-            // AYT için geri sayım
-            const aytDiff = aytTargetDate - now;
-            if (aytDiff <= 0) {
-                document.getElementById('ayt-days').textContent = '0';
-                document.getElementById('ayt-hours').textContent = '0';
-                document.getElementById('ayt-minutes').textContent = '0';
-                document.getElementById('ayt-seconds').textContent = '0';
-            } else {
-                const aytDays = Math.floor(aytDiff / (1000 * 60 * 60 * 24));
-                const aytHours = Math.floor((aytDiff / (1000 * 60 * 60)) % 24);
-                const aytMinutes = Math.floor((aytDiff / (1000 * 60)) % 60);
-                const aytSeconds = Math.floor((aytDiff / 1000) % 60);
-
-                document.getElementById('ayt-days').textContent = aytDays;
-                document.getElementById('ayt-hours').textContent = aytHours;
-                document.getElementById('ayt-minutes').textContent = aytMinutes;
-                document.getElementById('ayt-seconds').textContent = aytSeconds;
-            }
+            // Sınıfları ata
+            [dayElement, hourElement, minuteElement, secondElement].forEach(el => {
+                el.classList.add(urgencyClass);
+            });
         }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        
+        /* Sayfa kaydırma fonksiyonu - içerik kısmına kaydırır */
+        function scrollToContent() {
+            const seoContent = document.querySelector('.seo-content');
+            seoContent.scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
