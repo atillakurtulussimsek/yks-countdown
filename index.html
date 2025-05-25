@@ -963,15 +963,22 @@
             setInterval(updateCountdown, 1000);
         });
         
-        // Hedef sınav tarihleri
-        const targetDate = new Date('2025-06-21T10:15:00'); // TYT için
-        const aytTargetDate = new Date('2025-06-22T10:15:00'); // AYT için
+        // Hedef sınav tarihleri (Türkiye Saati - UTC+3)
+        // These dates are specified in Turkish Standard Time (TRT, UTC+3).
+        // This ensures the target moment is fixed, regardless of the user's local timezone.
+        const targetDate = new Date('2025-06-21T10:15:00+03:00'); // TYT için
+        const aytTargetDate = new Date('2025-06-22T10:15:00+03:00'); // AYT için
         
         // Sayaçları güncelleyen fonksiyon
         function updateCountdown() {
+            // 'now' gets the current moment based on the user's system clock.
+            // Internally, Date objects store time as milliseconds since the UTC epoch.
             const now = new Date();
             
             // TYT için geri sayım hesaplama
+            // The subtraction `targetDate - now` correctly calculates the millisecond difference
+            // between the fixed target time (in TRT) and the current universal moment.
+            // This difference is absolute and independent of the user's local timezone settings.
             updateSpecificCountdown(
                 targetDate - now,
                 'days', 'hours', 'minutes', 'seconds'
