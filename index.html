@@ -331,7 +331,7 @@
             color: white; /* Set text color to plain white */
             font-size: var(--font-size-title);
             font-weight: 800;
-            margin: 0 0 30px 0;
+            margin: 0 0 20px 0; /* Reduced bottom margin */
             padding: 0;
             text-align: center;
             letter-spacing: 0.05em; /* Azaltılmış letter-spacing */
@@ -350,7 +350,7 @@
         .countdown-section {
             width: 100%; /* Konteynerin genişliğini alır */
             max-width: 650px; /* Sayaçların çok fazla yayılmasını önler */
-            margin: 0 auto 20px auto; /* Ortalar ve alt boşluk ekler */
+            margin: 0 auto 15px auto; /* Reduced bottom margin, ortalar ve alt boşluk ekler */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -362,7 +362,7 @@
             display: flex;
             flex-direction: column; /* Sınav bölümlerini dikey olarak yığar */
             align-items: center; /* Yığılmış bölümleri ortalar */
-            gap: 30px; /* Yığılmış sınav bölümleri arasındaki boşluk */
+            gap: 20px; /* Reduced gap: Yığılmış sınav bölümleri arasındaki boşluk */
             width: 100%;
             max-width: 1400px; /* Genel konteynerin maksimum genişliği */
             margin: 0 auto;
@@ -424,7 +424,7 @@
         
         /* Sayaç değeri için geliştirilmiş okunabilirlik ve duyarlı font boyutu */
         .countdown-value {
-            font-size: clamp(0.8rem, 4.5vw, 2rem); /* Responsive font size */
+            font-size: clamp(1rem, 5vw, 2.5rem); /* Increased font size */
             font-weight: 800;
             color: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.3);
@@ -436,9 +436,9 @@
         /* Sayaç etiketi - okunabilirlik iyileştirildi ve duyarlı font boyutu */
         .countdown-label {
             color: white;
-            font-size: clamp(0.4rem, 2vw, 0.75rem); /* Responsive font size */
+            font-size: clamp(0.5rem, 2.2vw, 0.9rem); /* Increased font size */
             font-weight: 700;
-            margin-top: clamp(2px, 0.5vh, 5px); /* Responsive margin */
+            margin-top: clamp(3px, 0.6vh, 6px); /* Adjusted margin for new font size */
             letter-spacing: 0.5px;
             text-transform: uppercase;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
@@ -513,6 +513,15 @@
             margin-top: 50px; /* vh yerine sabit piksel değeri */
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 40px;
+            visibility: hidden; /* Initially hidden */
+            opacity: 0; /* Initially transparent */
+            transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s; /* Smooth transition */
+        }
+
+        .seo-content.visible {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s; /* Remove delay when becoming visible */
         }
         
         .seo-content h3 {
@@ -571,10 +580,12 @@
         @media (max-width: 700px) { /* 900px'den 700px'e değiştirildi, çünkü sütun düzeni artık varsayılan */
             .main-title { 
                 font-size: clamp(1.8rem, 6vw, 2.2rem); /* Adjusted for smaller screens */
-                margin-top: 30px;
+                margin-top: 20px; /* Adjusted top margin */
+                margin-bottom: 15px; /* Adjusted bottom margin */
             }
             .countdown-section {
                 max-width: 100%; /* Allow full width on smaller screens */
+                margin-bottom: 10px; /* Adjusted bottom margin for smaller screens */
             }
             /* .countdown-item, .countdown-value, .countdown-label için özel boyutlar kaldırıldı, clamp() halleder */
             .header-bar {
@@ -608,16 +619,16 @@
                 height: clamp(45px, 19vw, 100px);
             }
             .countdown-value {
-                font-size: clamp(0.7rem, 4vw, 1.5rem);
+                font-size: clamp(0.8rem, 4.5vw, 1.8rem); /* Adjusted for smaller screens */
             }
             .countdown-label {
-                font-size: clamp(0.35rem, 1.8vw, 0.6rem);
+                font-size: clamp(0.4rem, 2vw, 0.7rem); /* Adjusted for smaller screens */
                 margin-top: 2px;
                 padding: 1px 3px;
             }
             .main-title {
                 font-size: clamp(1.5rem, 7vw, 2rem);
-                margin-bottom: 20px;
+                margin-bottom: 15px; /* Adjusted bottom margin */
             }
             .header-bar {
                 font-size: clamp(0.8rem, 2.5vw, 1rem);
@@ -640,12 +651,12 @@
                 margin: 10px 0;
             }
             .main-title {
-                margin: 10px 0 8px 0;
+                margin: 10px 0 5px 0; /* Adjusted margins */
                 font-size: clamp(1.8rem, 3.5vw, 3rem);
             }
             .countdown-title {
                 font-size: clamp(1.1rem, 1.8vw, 1.6rem);
-                margin: 2px 0 5px 0;
+                margin: 2px 0 3px 0; /* Adjusted margins */
             }
             .seo-content {
                 margin-top: 10vh;
@@ -664,22 +675,22 @@
                 font-size: 1rem;
             }
             .main-title {
-                margin: 5px 0;
+                margin: 5px 0 3px 0; /* Adjusted margins */
                 font-size: clamp(1.5rem, 3vw, 2.5rem);
             }
-            .countdown-title { font-size: 1rem; margin: 2px 0; }
+            .countdown-title { font-size: 1rem; margin: 2px 0 2px 0; } /* Adjusted margins */
             .countdown-item {
                 width: 55px;
                 height: 55px;
             }
-            .countdown-value { font-size: 1.1rem; }
+            .countdown-value { font-size: 1.2rem; } /* Adjusted for very small height */
             .countdown-label {
-                font-size: 0.55rem;
+                font-size: 0.6rem; /* Adjusted for very small height */
                 margin-top: 1px;
             }
-            .countdown { gap: 8px; margin-bottom: 5px; }
+            .countdown { gap: 8px; margin-bottom: 3px; } /* Adjusted bottom margin */
             .countdown-separator { display: none; } /* Bu sınıf HTML'den kaldırıldığı için gizlendi */
-            .countdown-section { margin-bottom: 3px; }
+            .countdown-section { margin-bottom: 2px; } /* Adjusted bottom margin */
             .seo-content { padding: 10px; margin-top: 10px; }
             .seo-content br { display: none; }
         }
@@ -1037,6 +1048,11 @@
         function scrollToContent() {
             const seoContent = document.querySelector('.seo-content');
             seoContent.scrollIntoView({ behavior: 'smooth' });
+            // Make the section visible after scrolling
+            // Adding a small delay to ensure scroll starts before visibility change,
+            // or directly add class if scrollIntoView is blocking.
+            // For simplicity, adding class directly.
+            seoContent.classList.add('visible');
         }
     </script>
 </body>
