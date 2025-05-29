@@ -130,6 +130,15 @@
             overflow-y: auto;
             overflow-x: hidden; /* Yatay kaydırmayı engelle */
             color: var(--text-bright);
+            /* Firefox için kaydırma çubuğunu gizle */
+            scrollbar-width: none;
+            /* IE ve Edge için kaydırma çubuğunu gizle */
+            -ms-overflow-style: none;
+        }
+
+        /* Webkit tabanlı tarayıcılar için kaydırma çubuğunu gizle (Chrome, Safari, Edge) */
+        body::-webkit-scrollbar {
+            display: none;
         }
         
         /* Yeni geliştirilmiş arka plan */
@@ -152,7 +161,7 @@
             width: 100%;
             height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b721ff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
-            linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 96, 0.1) 100%);
+            linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, #00f2601a 100%);
         opacity: 0.7; /* Increased opacity */
     }
     
@@ -240,6 +249,15 @@
             justify-content: flex-start; /* İçeriği üstten başlat, ortalama yerine */
             overflow-y: auto;
             box-sizing: border-box;
+            /* Firefox için .content kaydırma çubuğunu gizle */
+            scrollbar-width: none;
+            /* IE ve Edge için .content kaydırma çubuğunu gizle */
+            -ms-overflow-style: none;
+        }
+
+        /* Webkit tabanlı tarayıcılar için .content kaydırma çubuğunu gizle */
+        .content::-webkit-scrollbar {
+            display: none;
         }
         
         /* Header görünürlüğünü sağlama */
@@ -687,7 +705,12 @@
             height: 12px;
             border-right: 2px solid white;
             border-bottom: 2px solid white;
-            transform: rotate(45deg) translateY(-2px); /* Shapes the arrow */
+            transform: rotate(45deg) translateY(-2px); /* Default: down arrow */
+            transition: transform 0.3s ease; /* Smooth transition for arrow rotation */
+        }
+
+        .scroll-indicator.is-pointing-up:after {
+            transform: rotate(-135deg) translateY(2px); /* Up arrow */
         }
         
         @keyframes pulse {
@@ -926,8 +949,8 @@
                 </section>
             </div>
             
-            <!-- Kaydırma işaretçisi - Erişilebilirlik iyileştirmeleri eklendi -->
-            <div class="scroll-indicator" onclick="scrollToContent()" role="button" tabindex="0" aria-label="İçeriğe kaydır"></div>
+            <!-- Kaydırma işaretçisi - Erişilebilirlik iyileştirmeleri eklendi, onclick kaldırıldı -->
+            <div class="scroll-indicator" role="button" tabindex="0" aria-label="İçeriğe kaydır"></div>
         </main>
         
         <!-- SEO bilgi içeriği -->
@@ -1089,6 +1112,41 @@
                     }, 400); 
                 });
             }
+
+            // Scroll indicator logic
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            const seoContentElement = document.querySelector('.seo-content'); // Değişken adını netleştirdim
+            const contentArea = document.querySelector('.content'); // Kaydırılacak ana içerik alanı
+
+            if (scrollIndicator && seoContentElement && contentArea) { // contentArea için de kontrol eklendi
+                scrollIndicator.addEventListener('click', function() {
+                    if (scrollIndicator.classList.contains('is-pointing-up')) {
+                        // .content alanının en üstüne kaydır
+                        contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+                        scrollIndicator.classList.remove('is-pointing-up');
+                        scrollIndicator.setAttribute('aria-label', 'İçeriğe kaydır');
+                        // SEO içeriğini tekrar gizle
+                        seoContentElement.classList.remove('visible');
+                    } else {
+                        // SEO içeriğine kaydır
+                        seoContentElement.scrollIntoView({ behavior: 'smooth' });
+                        // SEO içeriğini görünür yap
+                        setTimeout(() => {
+                           seoContentElement.classList.add('visible');
+                        }, 300); // Gecikme ayarlanabilir
+                        scrollIndicator.classList.add('is-pointing-up');
+                        scrollIndicator.setAttribute('aria-label', 'Yukarı kaydır');
+                    }
+                });
+
+                // Accessibility: Handle Enter/Space key press for the button
+                scrollIndicator.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Prevent default space scroll
+                        this.click(); // Trigger the click handler
+                    }
+                });
+            }
         });
         
         // Hedef sınav tarihleri (Türkiye Saati - UTC+3)
@@ -1176,7 +1234,8 @@
             });
         }
         
-        /* Sayfa kaydırma fonksiyonu - içerik kısmına kaydırır */
+        /* Eski Sayfa kaydırma fonksiyonu - içerik kısmına kaydırır - Artık kullanılmıyor, yeni logic scrollIndicator event listener içinde */
+        /*
         function scrollToContent() {
             const seoContent = document.querySelector('.seo-content');
             seoContent.scrollIntoView({ behavior: 'smooth' });
@@ -1186,6 +1245,7 @@
             // For simplicity, adding class directly.
             seoContent.classList.add('visible');
         }
+        */
     </script>
     
     <!-- Google tag (gtag.js) - GA4 Analitik -->
