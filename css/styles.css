@@ -1,0 +1,461 @@
+/* YKS Sayaç - Ana CSS Dosyası */
+
+/* Değişkenler ve temel stil tanımlamaları */
+:root {
+    /* Renkler ve gradyanlar */
+    --dark-bg: #0f0c29;
+    --dark-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    
+    /* Neon tonları */
+    --neon-blue: #4facfe;
+    --neon-purple: #b721ff; 
+    --neon-pink: #ff0080;
+    --neon-green: #00f260;
+    --neon-orange: #ff8b23;
+    
+    /* Gradyanlar */
+    --grad-blue: linear-gradient(45deg, #09c6f9, #045de9);
+    --grad-purple: linear-gradient(45deg, #b721ff, #21d4fd);
+    --grad-pink: linear-gradient(45deg, #ff0080, #ff8c00);
+    --grad-green: linear-gradient(45deg, #43e97b, #38f9d7);
+    --grad-gold: linear-gradient(45deg, #f9d423, #ff4e50);
+    
+    /* Metin renkleri */
+    --text-bright: rgba(255, 255, 255, 0.97);
+    --text-medium: rgba(255, 255, 255, 0.8);
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --text-glow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+    
+    /* Boşluk değişkenleri */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 50px;
+    
+    /* Dinamik renk değişimi için yeni değişkenler */
+    --urgency-low: linear-gradient(45deg, #43e97b, #38f9d7); /* Yeşil tonu - çok zaman var */
+    --urgency-medium: linear-gradient(45deg, #f9d423, #f83600); /* Turuncu/sarı - orta zaman */
+    --urgency-high: linear-gradient(45deg, #ff416c, #ff4b2b); /* Kırmızı tonu - az zaman */
+    
+    /* Daha uyumlu renk seti için yeni değişkenler */
+    --harmony-purple: linear-gradient(45deg, #8E2DE2, #4A00E0);
+    --harmony-blue: linear-gradient(45deg, #2193b0, #6dd5ed);
+    --harmony-teal: linear-gradient(45deg, #11998e, #38ef7d);
+    --harmony-orange: linear-gradient(45deg, #FF8008, #FFC837);
+    
+    /* Yazı tipi değişkenleri - daha iyi okunabilirlik için */
+    --font-title: 'Poppins', sans-serif;
+    --font-text: 'Poppins', sans-serif;
+    --font-size-title: clamp(2.5rem, 5vw, 4.5rem);
+    --font-size-subtitle: clamp(1.6rem, 3vw, 2.5rem);
+    --font-size-counter: clamp(2.2rem, 4vw, 3.5rem);
+    --font-size-label: clamp(0.9rem, 1.2vw, 1.4rem);
+    --font-size-text: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+/* Temel stiller */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--dark-gradient);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    color: var(--text-bright);
+    /* Firefox için kaydırma çubuğunu gizle */
+    scrollbar-width: none;
+    /* IE ve Edge için kaydırma çubuğunu gizle */
+    -ms-overflow-style: none;
+}
+
+/* Webkit tabanlı tarayıcılar için kaydırma çubuğunu gizle (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Arka plan animasyonu */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    overflow: hidden;
+}
+
+.bg-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b721ff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, #00f2601a 100%);
+    opacity: 0.7;
+}
+
+.bg-glow {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: radial-gradient(circle at center, rgba(183, 33, 255, 0.4) 0%, rgba(33, 212, 253, 0.2) 40%, transparent 70%);
+    animation: rotate 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Particles.js arka planı */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.95;
+}
+
+
+/* Parlama efekti */
+.countdown-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg);
+    animation: shimmer 4s infinite;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Ana içerik alanı */
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px var(--spacing-md) var(--spacing-md) var(--spacing-md);
+    height: 100vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header stili */
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.header-bar {
+    background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+    color: white;
+    padding: 12px 35px 10px 35px;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    position: relative;
+    display: block;
+    z-index: 5;
+    box-shadow: 0 5px 20px rgba(183, 33, 255, 0.5);
+    letter-spacing: 0.5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    max-width: 80%;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    animation: pulseShadow 3s infinite alternate;
+    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+}
+
+/* Animasyonlar */
+@keyframes pulseShadow {
+    from { box-shadow: 0 5px 15px rgba(183, 33, 255, 0.4); }
+    to { box-shadow: 0 5px 25px rgba(183, 33, 255, 0.7); }
+}
+
+@keyframes moveLight {
+    0% { left: 0; }
+    100% { left: 100%; }
+}
+
+.header-bar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(183, 33, 255, 0.6);
+}
+
+/* Ana başlık */
+.main-title {
+    font-family: var(--font-title);
+    color: white;
+    font-size: var(--font-size-title);
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    max-width: 90%;
+    position: relative;
+    display: block;
+    z-index: 5;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+/* Sayaç bölümleri */
+.countdown-section {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 15px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.countdowns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.countdown-title {
+    color: white;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    font-weight: 700;
+    margin: 0 auto 15px auto;
+    width: 100%;
+    max-width: 95%;
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 10px;
+    background: #8E2DE2; 
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Sayaçları içeren alan */
+.countdown {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: clamp(5px, 1.5vw, 12px);
+    width: 100%;
+    margin: 0 auto;
+    padding: clamp(8px, 2vw, 15px);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Geri sayım daireleri */
+.countdown-item {
+    position: relative;
+    width: clamp(50px, 19vw, 130px); 
+    height: clamp(50px, 19vw, 130px);
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ff5f6d, #ff416c);
+    box-shadow: 0 8px 18px rgba(255, 65, 108, 0.35), 
+                inset 0 0 12px rgba(255, 255, 255, 0.25),
+                0 0 25px rgba(255, 95, 109, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sayaç değeri */
+.countdown-value {
+    font-size: clamp(1rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.5px;
+}
+
+/* Sayaç etiketi */
+.countdown-label {
+    color: white;
+    font-size: clamp(0.5rem, 2.2vw, 0.9rem);
+    font-weight: 700;
+    margin-top: clamp(3px, 0.6vh, 6px);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: clamp(1px, 0.5vw, 3px) clamp(3px, 1vw, 6px);
+    border-radius: 4px;
+}
+
+/* Her saat birimi için renk stili */
+.countdown-item.days { 
+    background: var(--harmony-purple);
+    box-shadow: 0 10px 20px rgba(142, 45, 226, 0.4), 
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(142, 45, 226, 0.2);
+}
+
+.countdown-item.hours { 
+    background: var(--harmony-blue); 
+    box-shadow: 0 10px 20px rgba(33, 147, 176, 0.4), 
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(33, 147, 176, 0.2);
+}
+
+.countdown-item.minutes { 
+    background: var(--harmony-teal); 
+    box-shadow: 0 10px 20px rgba(17, 153, 142, 0.4), 
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(17, 153, 142, 0.2);
+}
+
+.countdown-item.seconds { 
+    background: var(--harmony-orange); 
+    box-shadow: 0 10px 20px rgba(255, 128, 8, 0.4), 
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 128, 8, 0.2);
+}
+
+
+
+/* Medya sorguları */
+@media (max-width: 700px) {
+    .main-title { 
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    .countdown-section {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    .header-bar {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        padding: 8px 15px;
+        max-width: 90%;
+        margin-top: 15px;
+    }
+    .countdown-title { font-size: clamp(1rem, 4vw, 1.3rem); }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    .main-title { font-size: clamp(2.5rem, 5vw, 3.4rem); }
+}
+
+/* Ekstra küçük ekranlar için optimizasyon */
+@media (max-width: 480px) {
+    .countdown {
+        gap: clamp(4px, 1vw, 8px);
+        padding: clamp(5px, 1.5vw, 10px);
+    }
+    .countdown-item {
+        width: clamp(45px, 19vw, 100px); 
+        height: clamp(45px, 19vw, 100px);
+    }
+    .countdown-value {
+        font-size: clamp(0.8rem, 4.5vw, 1.8rem);
+    }
+    .countdown-label {
+        font-size: clamp(0.4rem, 2vw, 0.7rem);
+        margin-top: 2px;
+        padding: 1px 3px;
+    }
+    .main-title {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 15px;
+    }
+    .header-bar {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+     .countdown-title {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    }
+}
+
+/* Düşük yükseklikli ekranlar için optimizasyon */
+@media (max-height: 650px) {
+    .countdown-item {
+        width: clamp(70px, 10vw, 130px);
+        height: clamp(70px, 10vw, 130px);
+    }
+    .countdown-value { font-size: clamp(1.5rem, 2.2vw, 2.7rem); }
+    .countdown-label { font-size: clamp(0.65rem, 0.9vw, 1.1rem); }
+    .header-bar {
+        padding: 6px 20px 4px 20px;
+        margin: 10px 0;
+    }
+    .main-title {
+        margin: 10px 0 5px 0;
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+    }
+    .countdown-title {
+        font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+        margin: 2px 0 3px 0;
+    }
+}

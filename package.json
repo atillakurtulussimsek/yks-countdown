@@ -1,0 +1,13 @@
+{
+  "name": "yks-countdown",
+  "version": "1.0.0",
+  "description": "YKS Geri Sayım - Simple static countdown timer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["yks", "countdown", "education"],
+  "author": "",
+  "license": "MIT"
+}
